@@ -2,241 +2,248 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Picture by Corentin</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <script src="https://kit.fontawesome.com/a2d9d5a64f.js" crossorigin="anonymous"></script>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f0f0f;
-      color: white;
-      overflow-x: hidden;
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0b0b0b;
+      color:white;
+      overflow-x:hidden;
     }
 
-    header {
-      height: 100vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-      url('https://i.postimg.cc/900rnhWn/DSC-1853.jpg') center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+      top:-200px;
+      right:-200px;
+      z-index:-1;
     }
 
-    header h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      padding:20px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.45);
+      backdrop-filter:blur(12px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #d0d0d0;
-      max-width: 700px;
+    nav h2{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:1px;
     }
 
-    .btn {
-      margin-top: 30px;
-      padding: 14px 35px;
-      border-radius: 50px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      background: #d9d9d9;
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      position:relative;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:white;
+      transition:0.3s;
     }
 
-    nav h2 {
-      font-size: 1.5rem;
+    nav ul li a:hover::after{
+      width:100%;
     }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 25px;
+    header{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+      url('https://i.postimg.cc/900rnhWn/DSC-1853.jpg') center/cover fixed;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
     }
 
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: 0.3s;
+    header h1{
+      font-size:5rem;
+      font-weight:700;
+      margin-bottom:15px;
+      animation:fadeUp 1s ease;
     }
 
-    nav ul li a:hover {
-      color: #b3b3b3;
+    header p{
+      max-width:700px;
+      color:#d0d0d0;
+      font-size:1.2rem;
+      line-height:1.8;
+      animation:fadeUp 1.4s ease;
     }
 
-    section {
-      padding: 100px 10%;
+    .btn{
+      margin-top:35px;
+      padding:15px 35px;
+      border-radius:50px;
+      background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      backdrop-filter:blur(10px);
+      transition:0.4s;
+      animation:fadeUp 1.8s ease;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
+    .btn:hover{
+      background:white;
+      color:black;
+      transform:translateY(-5px);
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    section{
+      padding:100px 10%;
     }
 
-    .gallery img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 20px;
-      transition: 0.4s;
-      cursor: pointer;
+    .section-title{
+      text-align:center;
+      font-size:2.7rem;
+      margin-bottom:60px;
+      font-weight:700;
     }
 
-    .gallery img:hover {
-      transform: scale(1.03);
-      opacity: 0.9;
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
     }
 
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 50px;
-      align-items: center;
+    .gallery img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+      border-radius:25px;
+      cursor:pointer;
+      transition:0.4s;
     }
 
-    .about img {
-      width: 100%;
-      border-radius: 25px;
+    .gallery img:hover{
+      transform:scale(1.03);
+      box-shadow:0 15px 40px rgba(0,0,0,0.5);
     }
 
-    .about-text h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:60px;
+      align-items:center;
     }
 
-    .about-text p {
-      color: #d1d1d1;
-      line-height: 1.8;
+    .about img{
+      width:100%;
+      border-radius:30px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.5);
     }
 
-    .instagram-section {
-      text-align: center;
+    .about-text h3{
+      font-size:2.4rem;
+      margin-bottom:20px;
     }
 
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+    .about-text p{
+      color:#d1d1d1;
+      line-height:1.9;
     }
 
-    .insta-post {
-      background: #1a1a1a;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: 0.3s;
+    .instagram-section{
+      text-align:center;
     }
 
-    .insta-post:hover {
-      transform: translateY(-5px);
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      background:#050505;
+      color:#777;
+      margin-top:50px;
+      border-top:1px solid rgba(255,255,255,0.08);
     }
 
-    .insta-post img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-
-    .insta-post p {
-      padding: 15px;
-      color: #d9d9d9;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: #1f1f1f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      transition: 0.3s;
-    }
-
-    .socials a:hover {
-      background: white;
-      color: black;
-      transform: scale(1.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background: #080808;
-      color: #999;
-      margin-top: 60px;
-    }
-
-    @media(max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
       }
-
-      nav {
-        padding: 15px 20px;
-      }
-
-      nav ul {
-        gap: 15px;
-      }
-
-      nav h2 {
-        font-size: 1.1rem;
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
+
+    @keyframes zoom{
+      from{
+        transform:scale(0.8);
+        opacity:0;
+      }
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    @media(max-width:768px){
+
+      header h1{
+        font-size:3rem;
+      }
+
+      nav{
+        padding:15px 20px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+    }
+
   </style>
 </head>
 <body>
@@ -253,102 +260,209 @@
 
   <header>
     <h1>Picture by Corentin</h1>
+
     <p>
       Photographie amateur • Capturer les moments, les émotions et les paysages avec passion.
     </p>
 
-    <a href="#gallery" class="btn">Découvrir mes photos</a>
+    <a href="#gallery" class="btn">
+      Découvrir mes photos
+    </a>
   </header>
 
   <section id="gallery">
+
     <h2 class="section-title">Galerie</h2>
 
     <div class="gallery">
-      <img src="https://i.postimg.cc/q7Kc12m2/DSC-1865.jpg" alt="Photo paysage">
 
-      <img src="https://i.postimg.cc/4xDVHmJ2/DSC-1835.jpg" alt="Photo montagne">
+      <img src="https://i.postimg.cc/q7Kc12m2/DSC-1865.jpg">
 
-      <img src="https://i.postimg.cc/TYhDkr15/DSC-1795.jpg" alt="Photo portrait">
+      <img src="https://i.postimg.cc/4xDVHmJ2/DSC-1835.jpg">
 
-      <img src="https://i.postimg.cc/900rnhWn/DSC-1853.jpg" alt="Photo nature">
+      <img src="https://i.postimg.cc/TYhDkr15/DSC-1795.jpg">
+
+      <img src="https://i.postimg.cc/900rnhWn/DSC-1853.jpg">
+
     </div>
+
   </section>
 
   <section id="about">
+
     <h2 class="section-title">À propos</h2>
 
     <div class="about">
-      <img src="https://i.postimg.cc/BvCbZ6t9/IMG-20260210-190617-710.webp" alt="Photographe">
+
+      <img src="https://i.postimg.cc/BvCbZ6t9/IMG-20260210-190617-710.webp">
 
       <div class="about-text">
+
         <h3>Corentin</h3>
 
         <p>
-          Passionné de photographie amateur, je partage ici mes clichés préférés : paysages,
-          portraits, ambiance urbaine et moments uniques.
-          
+          Passionné de photographie amateur, je partage ici mes clichés préférés :
+          paysages, portraits, ambiance urbaine et moments uniques.
+
           Chaque photo raconte une histoire et reflète ma vision du monde.
         </p>
+
       </div>
+
     </div>
+
   </section>
 
   <section id="instagram" class="instagram-section">
+
     <h2 class="section-title">Instagram</h2>
 
     <div style="display:flex; justify-content:center; margin-bottom:40px;">
-      <div style="background:#1a1a1a; padding:30px; border-radius:25px; max-width:450px; width:100%; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
-        <img 
-          src="https://i.postimg.cc/BvCbZ6t9/IMG-20260210-190617-710.webp" 
-          alt="Photo de profil Instagram"
-          style="width:120px; height:120px; border-radius:50%; object-fit:cover; border:4px solid white; margin-bottom:20px;"
-        >
 
-        <h3 style="font-size:1.8rem; margin-bottom:10px;">@picturebycorentin</h3>
+      <div style="
+      background:#1a1a1a;
+      padding:30px;
+      border-radius:25px;
+      max-width:450px;
+      width:100%;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      ">
+
+        <img
+        src="https://i.postimg.cc/BvCbZ6t9/IMG-20260210-190617-710.webp"
+        style="
+        width:120px;
+        height:120px;
+        border-radius:50%;
+        object-fit:cover;
+        border:4px solid white;
+        margin-bottom:20px;
+        ">
+
+        <h3 style="font-size:1.8rem; margin-bottom:10px;">
+          @picturebycorentin
+        </h3>
 
         <p style="color:#cfcfcf; line-height:1.7; margin-bottom:20px;">
-        📸 Nikon D7000
-        🌐 Web site 🔜
-         💪 For the best @cpr041<br>
+          📸 Nikon D7000<br>
+          🌐 Web site 🔜<br>
+          💪 For the best @cpr041<br>
           Paysages • Urbain • Portraits • Voyages
         </p>
 
-        <a 
-          href="https://www.instagram.com/picturebycorentin/" 
-          target="_blank"
-          class="btn"
-          style="display:inline-block; margin-top:10px;"
-        >
-          Voir le profil Instagram
-        </a>
-      </div>
-    </div>
+        <a
+        href="https://www.instagram.com/picturebycorentin/"
+        target="_blank"
+        class="btn">
 
-    <h2 class="section-title" style="font-size:2rem;">Derniers posts Instagram</h2>
+          Voir le profil Instagram
+
+        </a>
+
+      </div>
+
+    </div>
 
     <div style="display:flex; justify-content:center; margin-top:40px;">
-      <iframe 
-        src="https://www.instagram.com/picturebycorentin/embed"
-        width="400"
-        height="500"
-        frameborder="0"
-        scrolling="no"
-        allowtransparency="true"
-        style="border-radius:20px; background:#111; max-width:100%;"
-      ></iframe>
-    </div>
 
-    <div class="instagram-grid">
-
-      <a class="insta-post" href="https://www.instagram.com/picturebycorentin/" target="_blank">
-
+      <iframe
+      src="https://www.instagram.com/picturebycorentin/embed"
+      width="400"
+      height="500"
+      frameborder="0"
+      scrolling="no"
+      style="
+      border-radius:20px;
+      background:#111;
+      max-width:100%;
+      ">
+      </iframe>
 
     </div>
+
   </section>
 
   <footer>
     <p>© 2026 Picture by Corentin — Tous droits réservés.</p>
   </footer>
+
+  <!-- LIGHTBOX -->
+
+  <div id="lightbox" style="
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.95);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:20px;
+  ">
+
+    <span id="closeLightbox" style="
+    position:absolute;
+    top:20px;
+    right:35px;
+    font-size:45px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    ">
+      &times;
+    </span>
+
+    <img id="lightboxImg" src="" style="
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+    animation:zoom 0.3s ease;
+    box-shadow:0 0 40px rgba(255,255,255,0.15);
+    ">
+
+  </div>
+
+  <script>
+
+    const galleryImages = document.querySelectorAll('.gallery img');
+
+    const lightbox = document.getElementById('lightbox');
+
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    const closeLightbox = document.getElementById('closeLightbox');
+
+    galleryImages.forEach(img => {
+
+      img.addEventListener('click', () => {
+
+        lightbox.style.display = 'flex';
+
+        lightboxImg.src = img.src;
+
+      });
+
+    });
+
+    closeLightbox.addEventListener('click', () => {
+
+      lightbox.style.display = 'none';
+
+    });
+
+    lightbox.addEventListener('click', (e) => {
+
+      if(e.target !== lightboxImg){
+
+        lightbox.style.display = 'none';
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
